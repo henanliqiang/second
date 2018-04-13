@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>救援订单</title>
+    <link rel="stylesheet" type="text/css"  href="../assets/css/aui.css">
+    <link rel="stylesheet" type="text/css"  href="../assets/css/common.css">
+    <link rel="stylesheet" type="text/css"  href="css/accept.css">
+</head>
+<body>
+<div class="aui-content aui-padded-15 aui-margin-b-15" id="accept">
+        <ul class="aui-list aui-media-list">
+            <li class="aui-list-item aui-margin-b-15">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text" style="border-top: 1px solid #eee;">
+                            <div class="aui-list-item-inner aui-col-xs-6 aui-text-center ">
+                                <span>您已经接单成功，请联系用户，沟通救援细节到达用救援地点，实施救援，点击“联系用户”即可拨打用户电话号码。</span>
+                            </div>
+                        </div>
+                        <div class="aui-list-item-text" style="border-top: 1px solid #eee;">
+                            <div class="aui-list-item-inner aui-col-xs-6 aui-text-center ">
+                                <!-- istakestate订单生效 0：网点撤销订单   1：网点接受订单 2：等待网点操作 -->
+                                <span v-if="istakestate == 0">订单已撤销</span>
+                                <span v-if="istakestate == 1">订单已接受</span>
+                            </div>
+                        </div>
+                        <div class="aui-list-item-text" style="border-top: 1px solid #eee;" v-if="istakestate">
+                            <div class="aui-list-item-inner aui-col-xs-6 aui-text-center ">
+                                <span class="price" @click="settelsBtn(cellphone)">联系用户：</span>
+                            </div>
+                            <div class="aui-list-item-inner aui-col-xs-6 aui-text-center ">
+                                <span v-text="cellphone">123456789</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="../assets/js/api.js"></script>
+<script type="text/javascript" src="../assets/js/zepto.min.js"></script>
+<script type="text/javascript" src="../assets/js/common.js"></script>
+<script type="text/javascript" src="../assets/js/vue.min.js"></script>
+<script type="text/javascript" src="js/accept.js"></script>

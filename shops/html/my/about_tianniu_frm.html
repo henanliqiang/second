@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../assets/css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/common.css" />
+    <style type="text/css">
+    .aui-card-list img {
+        width: 100px;
+        height: 80px;
+        margin: 0 auto;
+    }
+
+    .wordpad {
+        padding: 10px 0px;
+    }
+    </style>
+</head>
+
+<body style="background: #fff;">
+    <div class="aui-content" id="app" style="margin-bottom:2.25rem;">
+        <div class="aui-card-list" style="height: 100%;">
+            <div class="row aui-text-center" style="padding: 1rem;">
+                <img src="../assets/image/logo.png" style="width: 3rem; height:3rem; margin: 0 auto;" />
+            </div>
+            <div class="aui-text-center">
+            河南牛电网络科技有限公司
+            </div>
+            <div class="aui-card-list-content-padded">
+            <p class="aui-font-size-12">
+              河南牛电网络科技有限公司是一家集电动车、电动车蓄电池销售、电动车锂电池租赁为一体的全方位电动车用户服务商。
+            </p>
+            <br>
+            <div class="aui-text-center">
+                公司旗下分为互联网业务和线下实体运营商：
+            </div>
+            <br>
+            <p class="aui-font-size-12">一、天牛网——天牛网是以互联网移动技术为平台进行导流及服务的平台，电动车电池及充电换电服务商。是为高频电动车用户提供锂电池租用、
+              实时更换满电电池的综合型服务平台。通过自运营网点、加盟小店等进行服务网点布局，用户缴纳电池押金，以月租/季租/年租方式租用电池，同时享受有偿的即时更换满电电池服务。
+            </p>
+            <br>
+            <p class="aui-font-size-12">二、天能集团郑州代理商，主营电动车蓄电池与铅酸电池的销售与售后服务。</p>
+            <br>
+            <p class="aui-font-size-12">团队理念：公司秉承诚信、规范、高效的工作原则，用商品物美价优赢得
+                市场，以创意服务取得信誉，竭诚为广大客户提供优质、高效、快捷的服务。
+            </p>
+            <br>
+            <p class="aui-font-size-12">
+              公司其核心团队于2012年进入郑州电动车电池行业，拥有丰富的电动车电池成功经验。现已具有自主规模，精英团队，专业化流程体系，公司与爱玛、台铃、新蕾、
+              绿能、雅迪、五星钻豹等各大品牌代理均有业务往来，在郑州等500多家线下门店进行销售。
+            </p>
+            <br>
+            <p class="aui-font-size-12">团队理念：公司秉承诚信、规范、高效的工作原则，用技术赢得市场，以创意服务取得信誉，竭诚为广大客户提供优质、高效、快捷的服务。</p>
+            <br>
+            <p class="aui-font-size-12">创新点：国内首家开拓、实践创新，线上一键操作的社会化营销新模式“以租代卖”，解决跑男电池换电充电问题，加盟网点全覆盖一站式服务，以消费者需求为导向，引领电池行业新潮流。
+展望未来：凭借与其它销售途径的差异化定位，平台目标客户精准，也更注重于为消费者提供更优质全面性的精细化服务。
+            </p>
+            </div>
+            </div>
+        <!-- <div class="aui-content-padded aui-margin-t-15">
+            <div class="aui-btn aui-btn-block aui-btn-sm aui-btn-info" onclick="checkUpdate()">检测更新，是否有新版本</div>
+        </div> -->
+        <!-- <div class="aui-content-padded aui-margin-t-15" >
+        <div class="aui-btn aui-btn-block aui-btn-sm aui-btn-info">推荐给朋友>></div>
+    </div> -->
+    </div>
+    <footer class="aui-bar aui-bar-tab" id="footer">
+        <p class="aui-text-center" style="color: #999;">Copyright @2016-2017</p>
+        <p class="aui-text-center" style="color: #999;margin-bottom: 0.5rem;">河南牛电网络科技有限公司 版权所有</p>
+    </footer>
+</body>
+
+</html>
+<script type="text/javascript" src="../assets/js/api.js"></script>
+<script type="text/javascript" src="../assets/js/common.js"></script>
+<script type="text/javascript" src="../assets/js/vue.min.js"></script>
+<script type="text/javascript">
+apiready = function() {
+
+    // 下拉刷新数据...
+    apps.pageDataF5(
+        function() {
+            // 初始化
+            // vm.init();
+        }
+    );
+
+
+};
+function checkUpdate() {
+        var mam = api.require('mam');
+        mam.checkUpdate(function(ret, err) {
+            if (ret) {
+                var result = ret.result;
+                if (result.update == true && result.closed == false) {
+                var str = '新版本型号:' + result.version + ';<br/>更新提示语:' + result.updateTip + ';<br/>发布时间:' + result.time;
+                    api.confirm({
+                    title: '有新版本更新,是否下载并安装 ',
+                        msg: str,
+                        buttons: ['确定', '取消']
+                    }, function(ret, err) {
+                        if (ret.buttonIndex == 1) {
+                            if (api.systemType == "android") {
+                                api.download({
+                                    url: result.source,
+                                    report: true
+                                }, function(ret, err) {
+                                    if (ret && 0 == ret.state) { /* 下载进度 */
+                                        api.toast({
+                                            msg: "正在下载应用" + ret.percent + "%",
+                                            duration: 2000
+                                        });
+                                    }
+                                    if (ret && 1 == ret.state) { /* 下载完成 */
+                                        var savePath = ret.savePath;
+                                        api.installApp({
+                                            appUri: savePath
+                                        });
+                                    }
+                                });
+                            }
+                            if (api.systemType == "ios") {
+                                api.installApp({
+                                    appUri: result.source
+                                });
+                            }
+                        }
+                    });
+                } else {
+                    api.alert({
+                        msg: "暂无更新"
+                    });
+                }
+            } else {
+                api.alert({
+                    msg: err.msg
+                });
+            }
+        });
+    }
+</script>

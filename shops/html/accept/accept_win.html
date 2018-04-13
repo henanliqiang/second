@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>接受订单</title>
+    <link rel="stylesheet" type="text/css"  href="../assets/css/aui.css">
+    <link rel="stylesheet" type="text/css"  href="../assets/css/common.css">
+    <link rel="stylesheet" type="text/css"  href="css/accept.css">
+</head>
+<body>
+  <header class="aui-bar aui-bar-nav aui-bar-custom" id="aui-header">
+          <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
+          <!-- <span class="aui-iconfont aui-icon-left"></span>返回 -->
+      </a>
+          <div class="aui-title">接受订单</div>
+      </header>
+</body>
+</html>
+<script type="text/javascript" src="../assets/js/api.js"></script>
+<script type="text/javascript" src="../assets/js/common.js"></script>
+<script>
+// 加载主题页面
+apiready = function() {
+    apps.loadWinUrl('accept_frm', 'accept/accept_frm.html', { istakestate: api.pageParam.istakestate,cellphone: api.pageParam.cellphone });
+};
+</script>
